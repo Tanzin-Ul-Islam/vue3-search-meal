@@ -1,0 +1,19 @@
+<template>
+  <div class="flex flex-col p-8">
+    <div>
+      <input
+        class="rounded border-2 border-gray-200 w-full"
+        id="search"
+        type="search"
+        placeholder="search for meal"
+      />
+    </div>
+    <div class="flex justify-center gap-1">
+      <router-link v-for="(data, index) in list" :key="index" :to="'/' + data">{{
+        data
+      }}</router-link>
+    </div>
+  </div>
+</template>
+
+<script src="./home.js"></script>
