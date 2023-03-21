@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col p-8">
-    <div>
+    <div class="mb-5">
       <input
         class="rounded border-2 border-gray-200 w-full"
         id="search"
@@ -9,7 +9,7 @@
       />
     </div>
     <div class="flex justify-center gap-1">
-      <router-link v-for="(data, index) in list" :key="index" :to="'/' + data">{{
+      <router-link v-for="(data, index) in list" :key="index" :to="'/letter/' + data" class="mr-3 font-semibold text-lg">{{
         data
       }}</router-link>
     </div>
