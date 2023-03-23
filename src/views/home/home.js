@@ -6,10 +6,14 @@ export default {
 
     setup(props) {
         let list = ref("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""));
+        let ingredients = ref([]);
 
-        function getAllIngredients() {
-            axiosClient.get('list.php?i=list').then(response => {
-                console.log(response);
+        async function getAllIngredients() {
+            await axiosClient.get('list.php?i=list').then(response => {
+                if (response.status == 200) {
+                    let data = response.data.meals;
+                    ingredients.value = data;
+                }
             }).catch(error => {
                 console.log(error)
             })
@@ -17,6 +21,7 @@ export default {
 
         return {
             list,
+            ingredients,
             getAllIngredients
         }
     },

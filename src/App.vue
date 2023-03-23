@@ -1,6 +1,19 @@
 <template>
+  <Header />
   <router-view :key="$route.fullPath"></router-view>
+  <Footer />
 </template>
+
+<script>
+import Header from "./components/layout/header/Header.vue";
+import Footer from "./components/layout/footer/Footer.vue";
+export default {
+  components: {
+    Header,
+    Footer,
+  },
+};
+</script>
 
 <style scoped>
 .logo {
