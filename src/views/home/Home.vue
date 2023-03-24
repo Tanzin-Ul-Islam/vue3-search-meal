@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col p-8">
+  <div class="flex flex-col p-8 min-h-screen">
     <div class="mb-5">
       <input
         class="rounded border-2 border-gray-200 w-full"
