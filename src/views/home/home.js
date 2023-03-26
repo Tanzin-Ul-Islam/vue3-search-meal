@@ -1,38 +1,30 @@
-import { mapState } from "vuex"
-import { ref } from "vue"
-import axiosClient from "../../utils/axiosClient";
+import { ref, onMounted } from "vue"
+import { computed } from 'vue'
+import store from "../../store"
+import Card from "../../components/card/Card.vue";
+import { useRoute } from "vue-router";
 export default {
-    name: 'Home',
+    components: {
+        Card,
+    },
 
     setup(props) {
-        let list = ref("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""));
-        let ingredients = ref([]);
-
-        async function getAllIngredients() {
-            await axiosClient.get('list.php?i=list').then(response => {
-                if (response.status == 200) {
-                    let data = response.data.meals;
-                    ingredients.value = data;
-                }
-            }).catch(error => {
-                console.log(error)
-            })
+        const router = useRoute();
+        let searchKey = ref("");
+        let meals = computed(() => store.state.searchedMeals)
+        function handleSearch() {
+            store.dispatch('searchMeals', searchKey.value);
         }
+
+        onMounted(() => {
+            handleSearch();
+        })
+
 
         return {
-            list,
-            ingredients,
-            getAllIngredients
+            searchKey,
+            meals,
+            handleSearch
         }
-    },
-
-    created() {
-        this.getAllIngredients();
-    },
-
-
-
-    computed: {
-        ...mapState(['meals'])
     }
 }

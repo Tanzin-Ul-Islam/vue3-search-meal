@@ -14,7 +14,8 @@
         v-for="(data, index) in list"
         :key="index"
         @click="handleClick(data)"
-        class="mr-3 text-lg hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg px-5 py-2.5 text-cente mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-100"
+        :style="[letter == data.toLowerCase() ? { background: '#111827 !important' } : '']"
+        class="mr-3 text-sm hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg px-5 py-2.5 text-cente mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-100"
         >{{ data }}</a
       >
     </div>

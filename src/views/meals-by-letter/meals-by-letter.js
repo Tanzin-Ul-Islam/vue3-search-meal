@@ -34,6 +34,7 @@ export default {
 
         return {
             list,
+            letter,
             mealList,
             handleClick
         }

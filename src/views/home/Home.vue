@@ -1,19 +1,8 @@
 <template>
   <div class="flex flex-col p-8 min-h-screen">
-    <div class="mb-5">
-      <input
-        class="rounded border-2 border-gray-200 w-full"
-        id="search"
-        type="search"
-        placeholder="search for meal"
-      />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+      <Card v-for="(data, index) in meals" :key="index" :meal="data" />
     </div>
-    <div class="flex justify-center gap-1">
-      <router-link v-for="(data, index) in list" :key="index" :to="'/letter/' + data" class="mr-3 font-semibold text-lg">{{
-        data
-      }}</router-link>
-    </div>
-    <pre>{{ingredients}}</pre>
   </div>
 </template>
 

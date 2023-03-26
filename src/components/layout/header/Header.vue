@@ -1,7 +1,7 @@
 <template>
   <nav class="px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
-      <a href="#" class="flex items-center">
+      <a href="javascript:void(0)" @click="$router.push('/')" class="flex items-center">
         <img
           src="https://flowbite.com/docs/images/logo.svg"
           class="h-6 mr-3 sm:h-10"
@@ -63,7 +63,7 @@
           <li>
             <a
               href="javascript:void(0)"
-              @click="$router.push('/by-ingredients')"
+              @click="$router.push('/ingredients')"
               class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >Meals by ingredients</a
             >

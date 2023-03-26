@@ -15,11 +15,15 @@
           {{ mealData.strMeal }}
         </h5>
       </a>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+      <p
+        v-if="mealData.strInstructions"
+        class="mb-3 font-normal text-gray-700 dark:text-gray-400"
+      >
         {{ mealData.strInstructions.slice(0, 100) + "..." }}
       </p>
       <div class="flex justify-between">
         <a
+          v-if="mealData.strYoutube"
           :href="mealData.strYoutube"
           target="_blank"
           class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-reds-800"
